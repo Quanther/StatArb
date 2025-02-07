@@ -71,14 +71,8 @@ def optimize_portfolio(sd='2021-01-01', ed='2025-01-01', syms=["AAPL", "MSFT", "
     """
     Optimize the portfolio allocation to maximize the Sharpe ratio.
     """
-    # if isinstance(sd, str):
-    #     sd = dt.datetime.strptime(sd, "%Y-%m-%d")
-    # if isinstance(ed, str):
-    #     ed = dt.datetime.strptime(ed, "%Y-%m-%d")
 
     # Fetch stock prices
-    # stock_data = get_stock_data(syms, sd.strftime('%Y-%m-%d'), ed.strftime('%Y-%m-%d'))
-    # syms = dow_tickers
     stock_data = get_stock_data(syms, sd, ed)
     stock_data = stock_data.dropna(axis=1)
     prices = stock_data['Adj Close']
@@ -91,7 +85,7 @@ def optimize_portfolio(sd='2021-01-01', ed='2025-01-01', syms=["AAPL", "MSFT", "
     
     elif risk_matrix == 'LedoitWolf':
         rm = RiskModel()
-        cov_matrix, _, _, _ = rm.shrinkage_covariance(returns)
+        cov_matrix, _, _, _ = rm.shrinkage_covariance(returns=returns, shrink_target_method='identity')
     elif risk_matrix == 'LedoitWolfSkLearn':
         lw = LedoitWolf()
         cov_matrix = lw.fit(returns).covariance_
@@ -135,7 +129,7 @@ if __name__ == "__main__":
                                                    tickers, 
                                                    risk_matrix, 
                                                    gen_plot=False)
-    print(f"Optimal Allocations: {[f'{t}: {a:.4f}' for t, a in zip(dow_tickers, allocs) if round(a, 4) != 0]}")    
+    print(f"Optimal Allocations: {sorted([f'{t}: {a:.4f}' for t, a in zip(tickers, allocs) if round(a, 4) != 0], key=lambda x: float(x.split(': ')[1]), reverse=True)}")
     print(f"Cumulative Return: {cr:.4f}")
     print(f"Average Daily Return: {adr:.4f}")
     print(f"Std Dev: {sddr:.4f}")

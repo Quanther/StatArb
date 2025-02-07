@@ -65,10 +65,10 @@ class RiskModel:
         # Calculate market returns if not provided, using cap-weighted approach
         if market_returns is None and cap is not None:
             # Normalize market caps to get weights for each time step (T, n)
-            weights = cap / np.sum(cap, axis=1, keepdims=True)  # Normalize along each row (T, n)
+            weights = cap / np.sum(cap, axis=1, keepdims=True)  
             
             # Compute market returns as a weighted average for each time step (T,)
-            market_returns = np.sum(returns * weights, axis=1)  # Element-wise multiplication and sum along columns
+            market_returns = np.sum(returns * weights, axis=1)  
 
         # Calculate betas (if market_returns is available)
         if market_returns is not None:
