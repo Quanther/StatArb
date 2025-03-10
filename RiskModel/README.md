@@ -65,11 +65,13 @@ where:
 
 ### **Estimating $\omega^2$ (Estimation Error)**
 The estimation error $\omega^2$ measures how far the sample covariance matrix $S_{\text{sample}}$ deviates from the true (but unknown) covariance matrix $\Sigma$. 
+
 $$
 \begin{align*}
 \omega^2 = E[||S_{\text{sample}} - \Sigma||^2] = \frac{1}{T(T-1)} \sum_{t=1}^{T} || X_t X'_t - S_{\text{sample}} ||^2
 \end{align*}
 $$
+
 where:
 - $T$ is the number of observations.
 - $X_t X'_t$ is the outer product of the return vector at time $t$.
@@ -99,6 +101,7 @@ where:
 - $\hat{\omega}^2$ is the estimated covariance estimation error.
 
 If the shrinkage target is the **scaled identity matrix**, $S_{\text{target}} = \bar{\sigma} I$, where $\bar{\sigma} = \frac{\text{trace}(S_{\text{sample}})}{n}$:
+
 $$
 \hat{\delta}^2 = \| S_{\text{sample}} - \bar{\sigma} I \|^2 - \hat{\omega}^2
 $$
