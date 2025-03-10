@@ -71,9 +71,7 @@ where:
 The estimation error $\omega^2$ measures how far the sample covariance matrix $S_{\text{sample}}$ deviates from the true (but unknown) covariance matrix $\Sigma$. 
 
 $$
-\begin{align*}
 \omega^2 = E[||S_{\text{sample}} - \Sigma||^2] = \frac{1}{T(T-1)} \sum_{t=1}^{T} || X_t X'_t - S_{\text{sample}} ||^2
-\end{align*}
 $$
 
 where:
