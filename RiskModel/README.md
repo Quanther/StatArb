@@ -21,6 +21,7 @@ where:
 
 ### **Shrinkage Targets**
 1. **Identity Matrix (`identity`)**
+
    $$
    \begin{align*}
    S_{\text{target}}[i, j] =
@@ -30,9 +31,11 @@ where:
    \end{cases}
    \end{align*}
    $$
+
    where $\sigma_i^2$ is the variance of stock $i$.
 
 2. **Average Correlation Matrix (`avgcorr`)**
+
    $$
    \begin{align*}
    S_{\text{target}}[i, j] =
@@ -42,6 +45,7 @@ where:
    \end{cases}
    \end{align*}
    $$
+
    where:
    - $\rho_{\text{avg}}$ is the average pairwise correlation.
    - $\sigma_i, \sigma_j$ are standard deviations of stocks $i$ and $j$.
@@ -65,6 +69,7 @@ where:
 
 ### **Estimating $\omega^2$ (Estimation Error)**
 The estimation error $\omega^2$ measures how far the sample covariance matrix $S_{\text{sample}}$ deviates from the true (but unknown) covariance matrix $\Sigma$. 
+
 
 $$
 \begin{align*}
