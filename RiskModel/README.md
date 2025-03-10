@@ -22,33 +22,33 @@ where:
 ### **Shrinkage Targets**
 1. **Identity Matrix (`identity`)**
 
-   $$
-   \begin{align*}
-   S_{\text{target}}[i, j] =
-   \begin{cases}
-   \sigma_i^2 & \text{if } i = j \\
-   0 & \text{if } i \neq j
-   \end{cases}
-   \end{align*}
-   $$
+$$
+\begin{align*}
+S_{\text{target}}[i, j] =
+\begin{cases}
+\sigma_i^2 & \text{if } i = j \\
+0 & \text{if } i \neq j
+\end{cases}
+\end{align*}
+$$
 
-   where $\sigma_i^2$ is the variance of stock $i$.
+where $\sigma_i^2$ is the variance of stock $i$.
 
 2. **Average Correlation Matrix (`avgcorr`)**
 
-   $$
-   \begin{align*}
-   S_{\text{target}}[i, j] =
-   \begin{cases}
-   \sigma_i^2 & \text{if } i = j \\
-   \rho_{\text{avg}} \cdot \sigma_i \cdot \sigma_j & \text{if } i \neq j
-   \end{cases}
-   \end{align*}
-   $$
+$$
+\begin{align*}
+S_{\text{target}}[i, j] =
+\begin{cases}
+\sigma_i^2 & \text{if } i = j \\
+\rho_{\text{avg}} \cdot \sigma_i \cdot \sigma_j & \text{if } i \neq j
+\end{cases}
+\end{align*}
+$$
 
-   where:
-   - $\rho_{\text{avg}}$ is the average pairwise correlation.
-   - $\sigma_i, \sigma_j$ are standard deviations of stocks $i$ and $j$.
+where:
+- $\rho_{\text{avg}}$ is the average pairwise correlation.
+- $\sigma_i, \sigma_j$ are standard deviations of stocks $i$ and $j$.
 
 ---
 
